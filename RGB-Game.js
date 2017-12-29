@@ -1,17 +1,11 @@
 //colors array
-var colors = [
-    "rgb(255, 0 , 0)",
-    "rgb(255, 255, 0)",
-    "rgb(0, 255, 0)",
-    "rgb(0, 255, 255)",
-    "rgb(0, 0, 255)",
-    "rgb(255, 0, 255)"
-];
-
+var colors = generateRandomColorArray(6);
 var squares = document.querySelectorAll(".square");
-var pickedColor = randomColor();
+var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
+var h1 = document.querySelector("h1");
+
 
 //initial testing color
 colorDisplay.textContent = pickedColor;
@@ -36,6 +30,7 @@ for (var i = 0; i < squares.length; i++){
 function correctGuess(color) {
     messageDisplay.textContent = "CORRECT!";
     changeColorsOnWin(color);
+    h1.style.background = color;
 }
 
 // Correct Guess
@@ -53,7 +48,33 @@ function changeColorsOnWin(color){
     
 }
 
-function randomColor() {
+//select random value from colors[]
+function pickColor() {
     var random = Math.floor(Math.random() * colors.length - 1);
     return colors[random];
 }
+
+function generateRandomColorArray(num) {
+    //make an array 
+    var arr = []
+    //repeat num times
+    //add num rand colors to arr
+    for (var i = 0; i < num; i++) {
+        //get rand color and push into arr
+        arr.push(randomColor());
+    }
+    //return arr
+    return arr;
+}
+
+//generate arr of rand colors
+function randomColor() {
+    //pick a red
+    var r = Math.floor(Math.random() * 256);
+    //pick a green
+    var g = Math.floor(Math.random() * 256);
+    //pick a blue
+    var b = Math.floor(Math.random() * 256);
+    
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+ }
