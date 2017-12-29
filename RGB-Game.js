@@ -67,10 +67,12 @@ function changeColorsOnWin(color){
 
 //select random value from colors[]
 function pickColor() {
-    var random = Math.floor(Math.random() * colors.length - 1);
+    var random = Math.floor(Math.random() * colors.length);
+    console.log(random);
     return colors[random];
 }
 
+//generate arr of rand colors
 function generateRandomColorArray(num) {
     //make an array 
     var arr = []
@@ -84,7 +86,6 @@ function generateRandomColorArray(num) {
     return arr;
 }
 
-//generate arr of rand colors
 function randomColor() {
     //pick a red
     var r = Math.floor(Math.random() * 256);
