@@ -13,30 +13,20 @@ var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
 var modeButtons = document.querySelectorAll(".mode");
 
+
+/**************
+EVENT LISTENERS
+**************/
+
 for(var i = 0; i < modeButtons.length; i++) {
     modeButtons[i].addEventListener("click", function() {
         modeButtons[0].classList.remove("selected");
         modeButtons[1].classList.remove("selected");
         this.classList.add("selected");
-        
         numSquares = this.textContent === "Easy" ? 3 : 6;
-        
         reset();
-        
-        //figure out how many square to show
-        
-        //pick new colors
-        
-        //pick a new pickedColor
-        
-        //update page to reflect changes
-        
     })
 }
-
-/**************
-EVENT LISTENERS
-**************/
 
 resetButton.addEventListener("click", function(){
     reset();
@@ -118,7 +108,6 @@ function changeColorsOnWin(color){
 //select random value from colors[]
 function pickColor() {
     var random = Math.floor(Math.random() * colors.length);
-    console.log(random);
     return colors[random];
 }
 
