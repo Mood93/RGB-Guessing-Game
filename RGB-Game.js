@@ -19,7 +19,7 @@ for(var i = 0; i < modeButtons.length; i++) {
         modeButtons[1].classList.remove("selected");
         this.classList.add("selected");
         
-        numSquares = this.textContent === "easy" ? 3 : 6;
+        numSquares = this.textContent === "Easy" ? 3 : 6;
         
         reset();
         
@@ -38,52 +38,8 @@ for(var i = 0; i < modeButtons.length; i++) {
 EVENT LISTENERS
 **************/
 
-//easybtn.addEventListener("click", function(){
-//    easybtn.classList.add("selected");                   
-//    hardbtn.classList.remove("selected"); 
-//    numSquares = 3;
-//    colors = generateRandomColorArray(numSquares);
-//    pickedColor = pickColor();
-//    colorDisplay.textContent = pickedColor;
-//    
-//    for (var i = 0; i < squares.length; i++){
-//        if(colors[i]){
-//            squares[i].style.backgroundColor = colors[i];
-//        } else {
-//            squares[i].style.display = "none";
-//        }
-//    }
-//})
-//
-//hardbtn.addEventListener("click", function(){
-//    easybtn.classList.remove("selected");                   
-//    hardbtn.classList.add("selected");
-//    numSquares = 6;
-//    colors = generateRandomColorArray(numSquares);
-//    pickedColor = pickColor();
-//    colorDisplay.textContent = pickedColor;
-//    
-//    for (var i = 0; i < squares.length; i++){
-//            squares[i].style.backgroundColor = colors[i];
-//            squares[i].style.display = "block";
-//        }
-//})
-
 resetButton.addEventListener("click", function(){
-    //gen all new colors
-    colors = generateRandomColorArray(numSquares);
-    //pick a new random color from array
-    pickedColor = pickColor();
-    //change colorDisplay to match picked color
-    colorDisplay.textContent = pickedColor; 
-    //change colors of squares
-    for (var i = 0; i < colors.length; i++){
-        squares[i].style.backgroundColor = colors[i];
-    }
-    h1.style.background = null;
-    h1.style.backgroundColor = "steelblue";
-    messageDisplay.textContent = "";
-    this.textContent = "New Colors"
+    reset();
 })
 
 /***
@@ -123,6 +79,7 @@ function reset() {
     //change colors of squares
     for (var i = 0; i < squares.length; i++){
         if (colors[i]) {
+            squares[i].style.display = "block";
             squares[i].style.background = colors[i];
         } else {
             squares[i].style.display = "none";
