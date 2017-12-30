@@ -1,9 +1,4 @@
-/********
-VARIABLES
-********/
-
 //colors array
-var numSquares = 6;
 var colors = generateRandomColorArray(6);
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
@@ -11,47 +6,10 @@ var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
-var easybtn = document.getElementById("easybtn");
-var hardbtn = document.getElementById("hardbtn");
-
-/**************
-EVENT LISTENERS
-**************/
-
-easybtn.addEventListener("click", function(){
-    easybtn.classList.add("selected");                   
-    hardbtn.classList.remove("selected"); 
-    numSquares = 3;
-    colors = generateRandomColorArray(numSquares);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    
-    for (var i = 0; i < squares.length; i++){
-        if(colors[i]){
-            squares[i].style.backgroundColor = colors[i];
-        } else {
-            squares[i].style.display = "none";
-        }
-    }
-})
-
-hardbtn.addEventListener("click", function(){
-    easybtn.classList.remove("selected");                   
-    hardbtn.classList.add("selected");
-    numSquares = 6;
-    colors = generateRandomColorArray(numSquares);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    
-    for (var i = 0; i < squares.length; i++){
-            squares[i].style.backgroundColor = colors[i];
-            squares[i].style.display = "block";
-        }
-})
 
 resetButton.addEventListener("click", function(){
     //gen all new colors
-    colors = generateRandomColorArray(numSquares);
+    colors = generateRandomColorArray(6);
     //pick a new random color from array
     pickedColor = pickColor();
     //change colorDisplay to match picked color
@@ -63,9 +21,6 @@ resetButton.addEventListener("click", function(){
     h1.style.background = null;
 })
 
-/***
-MAIN
-***/
 
 //initial testing color
 colorDisplay.textContent = pickedColor;
@@ -85,9 +40,6 @@ for (var i = 0; i < squares.length; i++){
     })
 }
 
-/********
-FUNCTIONS
-********/
 
 // Correct Guess
 function correctGuess(color) {
