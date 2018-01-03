@@ -78,7 +78,7 @@ function reset() {
     h1.style.background = null;
     h1.style.backgroundColor = "steelblue";
     messageDisplay.textContent = "";
-    reset.textContent = "New Colors"
+    resetButton.textContent = "New Colors"
 }
 
 
